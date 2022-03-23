@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import { FiArrowRight } from "react-icons/fi";
-
 function Header({ title }) {
   const Wrapper = styled.header`
     background-color: var(--top-nav-color);
