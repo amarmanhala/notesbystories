@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import { FiArrowRight } from "react-icons/fi";
-import About from "../About";
+import About from "../Welcome";
 
 function Header({ title }) {
   const Wrapper = styled.header`
@@ -44,18 +44,17 @@ function Header({ title }) {
   };
   return (
     <>
-      <Routes>
-        <Route path="about" element={<About />} />
-      </Routes>
       <Wrapper>
-        <NavContentWrapper>
-          <NavContent>
-            <Link to="/about">Login or Sign up to store your notes permanently ✨</Link>
-          </NavContent>{" "}
-          <ArrowRightWrapper>
-            <FiArrowRight style={arrowRight} />
-          </ArrowRightWrapper>
-        </NavContentWrapper>
+       <Link to="/welcome">
+          <NavContentWrapper>
+            <NavContent>
+              Login or Sign up to store your notes permanently ✨
+            </NavContent>{" "}
+            <ArrowRightWrapper>
+              <FiArrowRight style={arrowRight} />
+            </ArrowRightWrapper>
+          </NavContentWrapper>
+       </Link>
       </Wrapper>
     </>
   );

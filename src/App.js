@@ -3,7 +3,7 @@ import GlobalStyles from "./GlobalStyles";
 import "./index.css";
 import Header from "./components/Header";
 import Editor from "./components/Editor";
-import About from "./components/About";
+import Welcome from "./components/Welcome";
 import Main from "./components/Main";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <div className="App">
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="about" element={<About />} />
+        <Route path="welcome" element={<Welcome />} />
       </Routes>
       </div>
     </>

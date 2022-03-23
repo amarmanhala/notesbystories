@@ -1,6 +1,6 @@
 import React from "react";
 
-function About() {
+function Welcome() {
   return (
     <>
       <main>
@@ -14,4 +14,4 @@ function About() {
   );
 }
 
-export default About;
+export default Welcome;
