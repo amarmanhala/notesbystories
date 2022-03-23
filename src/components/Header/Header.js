@@ -44,7 +44,7 @@ function Header({ title }) {
   return (
     <>
       <Wrapper>
-       <Link to="/welcome">
+       <Link to="/Welcome">
           <NavContentWrapper>
             <NavContent>
               Login or Sign up to store your notes permanently ✨
