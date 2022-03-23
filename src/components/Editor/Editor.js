@@ -24,7 +24,7 @@ function Editor({ title }) {
 
   return (
     <Wrapper>
-      hj
+      hjhhj
     </Wrapper>
   );
 }
