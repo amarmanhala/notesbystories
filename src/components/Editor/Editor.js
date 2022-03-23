@@ -15,11 +15,10 @@ function Editor({ title }) {
 
     @media ${device.mobileM} { 
     width: 100%;
-    border: none;
+    border-right: none;
   }
   @media ${device.laptop} { 
-    width: 70%;
-    border-right: 1px solid var(--border-color);
+    width: 100%;
   }
   `;
 
