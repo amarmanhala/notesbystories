@@ -7,7 +7,7 @@ import { device } from "../Devices";
 import { Link } from "react-router-dom";
 
 
-function Welcome() {
+function SignUp() {
   const LoginPage = styled.div`
     display: flex;
     flex-direction: column;
@@ -52,14 +52,14 @@ color: var(--blue);
   return (
     <LoginPage>
       <LoginWrapper>
-        <H1Wrapper><H1>Login in to Notes</H1></H1Wrapper>
+        <H1Wrapper><H1>Sign Up in to Notes</H1></H1Wrapper>
         <InputEmail></InputEmail>
         <InputPassword></InputPassword>
         <LoginButton></LoginButton>
-        <SignUpLink to="/signup">Don't have an account? Sign Up</SignUpLink>
+        <SignUpLink to="/welcome">Already have an account? Login</SignUpLink>
       </LoginWrapper>
     </LoginPage>
   );
 }
 
-export default Welcome;
+export default SignUp;

@@ -4,6 +4,7 @@ import GlobalStyles from "./GlobalStyles";
 import "./index.css";
 import Welcome from "./components/Welcome";
 import Main from "./components/Main";
+import SignUp from './components/SignUp';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="welcome" element={<Welcome />} />
+        <Route path="signup" element={<SignUp />} />
       </Routes>
       </div>
     </>

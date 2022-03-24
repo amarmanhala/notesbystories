@@ -8,6 +8,10 @@ const GlobalStyles = createGlobalStyle`
         --secondary-color: #9CA8B4;
         --border-color: #2B333B;
         --top-nav-color: #fff;
+        --system-gray3: #C7C7CC;
+        --system-gray: #8E8E93;
+
+
         
         //Sizes
         --header-height: 44px;
@@ -19,6 +23,9 @@ const GlobalStyles = createGlobalStyle`
         --border-color: #2B333B;
         --active-green: #00A907;
         --top-nav-color: #0B1014;
+        --system-gray3: #48484A;
+        --system-gray: #8E8E93;
+        --blue: #0A84FF;
 }
     }
 
