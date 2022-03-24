@@ -2,6 +2,8 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import { FiArrowRight } from "react-icons/fi";
+import { device } from "../../Devices";
+
 function Header({ title }) {
   const Wrapper = styled.header`
     background-color: var(--top-nav-color);
@@ -13,15 +15,23 @@ function Header({ title }) {
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    @media (max-width: 768px) {
-      min-height: 38px;
+    @media ${device.mobileM} {
+      padding: 0 4px;
     }
   `;
   const NavContent = styled.span`
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
-    @media (max-width: 768px) {
+    @media ${device.mobileM} {
       font-size: 12px;
+      font-weight: 600;
+    }
+    @media ${device.tablet} {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    @media ${device.laptop} {
+      font-size: 16px;
       font-weight: 600;
     }
   `;

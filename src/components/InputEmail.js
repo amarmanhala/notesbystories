@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import { device } from "../Devices";
 
 export default function InputEmail() {
   const Input = styled.input`
@@ -18,6 +19,18 @@ export default function InputEmail() {
   &::placeholder {
     color: var(--system-gray3);
   }
+  @media ${device.mobileM} {
+    padding: 12px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: 400;
+    }
+    @media ${device.tablet} {
+      padding: 18px 14px;
+    }
+    @media ${device.laptop} {
+      padding: 18px 14px;
+    }
   `;
   return (
     <>

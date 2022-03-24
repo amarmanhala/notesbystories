@@ -5,6 +5,7 @@ import InputPassword from "./InputPassword";
 import LoginButton from "./LoginButton";
 import { device } from "../Devices";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 
 
 function Welcome() {
@@ -51,6 +52,7 @@ color: var(--blue);
 
   return (
     <LoginPage>
+      <Header></Header>
       <LoginWrapper>
         <H1Wrapper><H1>Login in to Notes</H1></H1Wrapper>
         <InputEmail></InputEmail>

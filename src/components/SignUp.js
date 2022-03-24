@@ -52,11 +52,11 @@ color: var(--blue);
   return (
     <LoginPage>
       <LoginWrapper>
-        <H1Wrapper><H1>Sign Up in to Notes</H1></H1Wrapper>
+        <H1Wrapper><H1>Sign Up for Notes</H1></H1Wrapper>
         <InputEmail></InputEmail>
         <InputPassword></InputPassword>
         <LoginButton></LoginButton>
-        <SignUpLink to="/welcome">Already have an account? Login</SignUpLink>
+        <SignUpLink to="/welcome">Already have an account? Log in</SignUpLink>
       </LoginWrapper>
     </LoginPage>
   );
