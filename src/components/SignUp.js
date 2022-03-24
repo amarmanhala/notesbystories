@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import InputEmail from "./InputEmail";
-import InputPassword from "./InputPassword";
-import LoginButton from "./LoginButton";
+import {Input} from "./Input";
+import {Button} from "./Button";
 import { device } from "../Devices";
 import { Link } from "react-router-dom";
 
@@ -53,9 +52,9 @@ color: var(--blue);
     <LoginPage>
       <LoginWrapper>
         <H1Wrapper><H1>Sign Up for Notes</H1></H1Wrapper>
-        <InputEmail></InputEmail>
-        <InputPassword></InputPassword>
-        <LoginButton></LoginButton>
+        <Input></Input>
+        <Input></Input>
+        <Button>Signup</Button>
         <SignUpLink to="/welcome">Already have an account? Log in</SignUpLink>
       </LoginWrapper>
     </LoginPage>

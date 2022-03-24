@@ -1,18 +1,18 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
 import { device } from "../Devices";
 
-export default function InputEmail() {
-  const Input = styled.input`
+export const Input = styled.input`
   background-color: transparent;
   border: 1px solid var(--system-gray3);
   outline: none;
-  padding: 18px 14px;
+  padding: 16px 14px;
   font-size: 18px;
   font-weight: 500;
   border-radius: 6px;
   letter-spacing: 1px;
   margin-bottom: 0.8em;
+  font-size: 100%;
   &:focus {
     border: 1px solid var(--system-gray);
   }
@@ -24,17 +24,15 @@ export default function InputEmail() {
     font-size: 14px;
     border-radius: 4px;
     font-weight: 400;
-    }
-    @media ${device.tablet} {
-      padding: 18px 14px;
-    }
-    @media ${device.laptop} {
-      padding: 18px 14px;
-    }
-  `;
-  return (
-    <>
-      <Input type="email" required placeholder="Email Address" autocapitalize="off" autocomplete="off" autocorrect="off"></Input>
-    </>
-  )
-}
+  }
+  @media ${device.tablet} {
+    padding: 14px 14px;
+    font-size: 16px;
+    font-weight: 300;
+  }
+  @media ${device.laptop} {
+    padding: 14px 14px;
+    font-size: 16px;
+    font-weight: 300;
+  }
+`;
