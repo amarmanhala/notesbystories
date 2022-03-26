@@ -26,6 +26,7 @@ const GlobalStyles = createGlobalStyle`
         --system-gray3: #48484A;
         --system-gray: #8E8E93;
         --blue: #0A84FF;
+        --velvet: #5E5CE6;
 }
     }
 

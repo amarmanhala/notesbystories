@@ -23,7 +23,9 @@ export const Input = styled.input`
     padding: 12px 10px;
     font-size: 14px;
     border-radius: 4px;
+    border-radius: 8px;
     font-weight: 400;
+    margin-bottom: 1em;
   }
   @media ${device.tablet} {
     padding: 14px 14px;
