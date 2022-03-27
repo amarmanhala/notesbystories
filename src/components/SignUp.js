@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { Input } from "./Input";
 import { Button } from "./Button";
@@ -6,9 +6,10 @@ import { device } from "../Devices";
 import { Link } from "react-router-dom";
 import { Header, NavContentWrapper, NavContent, ArrowWrapper } from "./Header";
 import { FiArrowLeft } from "react-icons/fi";
+import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase-config";
 
-function SignUp() {
-  const LoginPage = styled.div`
+const LoginPage = styled.div`
     display: flex;
     flex-direction: column;
     //justify-content: center;
@@ -27,7 +28,6 @@ function SignUp() {
     height: -webkit-fill-available;
     background-color: transparent;
   `;
-
   const LoginWrapper = styled.div`
     background: transparent;
     display: flex;
@@ -98,6 +98,23 @@ function SignUp() {
     strokeWidth: "3",
   };
 
+function SignUp() {
+
+  const [registerEmail, setregisteEmail] = useState("");
+  const [registerPassword, setregisterPassword] = useState("");
+  const [user, setuser] = useState({});
+onAuthStateChanged(auth, (currentUser) => {
+  setuser(currentUser);
+})
+  const register = async () => {
+    try {
+    const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
+    console.log(user);
+    }
+    catch(error) {
+        console.log(error.message);
+    }
+  }
   return (
     <LoginPage>
       <Header>
@@ -113,15 +130,17 @@ function SignUp() {
       <Main>
         <LoginWrapper>
           <H1Wrapper>
+          <H1>{user?.email}</H1>
             <H1>Sign up for notes</H1>
           </H1Wrapper>
           <Input type="text" placeholder="Your Name"></Input>
-          <Input type="email" placeholder="Email Address"></Input>
-          <Input type="password" placeholder="Password"></Input>
+          <Input type="email" placeholder="Email Address" onChange={(event) => setregisteEmail(event.target.value)}></Input>
+          <Input type="password" placeholder="Password" onChange={(event) => setregisterPassword(event.target.value)}></Input>
           <Input type="password" placeholder="Confirm Password"></Input>
           <Button
             type="submit"
             bgColor="#5E5CE6"
+            onClick={register}
           >
             Sign Up
           </Button>
