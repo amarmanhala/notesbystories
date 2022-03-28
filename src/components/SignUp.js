@@ -10,9 +10,11 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../firebase-config";
 import { updateProfile } from "firebase/auth";
 import ErrorMessage from "./ErrorMessage";
+import SignUpWithGoogle from "./SignUpWithGoogle";
 
 const LoginPage = styled.div`
   display: flex;
@@ -108,6 +110,7 @@ const arrowRight = {
 };
 
 function SignUp() {
+  const provider = new GoogleAuthProvider();
   const [registerEmail, setregisteEmail] = useState("");
   const [registerPassword, setregisterPassword] = useState("");
   const [error, setError] = useState(false);
@@ -186,6 +189,7 @@ function SignUp() {
               Sign Up
             </Button>
           </Form>
+          <SignUpWithGoogle></SignUpWithGoogle>
           <Divider></Divider>
           <SignUpLinkWrapper tabIndex="0">
             <SignUpLink to="/welcome">
