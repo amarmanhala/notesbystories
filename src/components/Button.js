@@ -8,7 +8,8 @@ export const Button = styled.button`
   font-weight: 500;
   font-size: 20px;
   border: 1px solid #000;
-  &::hover {
+  &:hover {
+    background-color: ${(props) => props.hoverBgColor || ''};
   }
   &::active {
   }

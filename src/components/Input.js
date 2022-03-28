@@ -13,6 +13,7 @@ export const Input = styled.input`
   letter-spacing: 1px;
   margin-bottom: 0.8em;
   font-size: 100%;
+  
   &:focus {
     border: 1px solid var(--system-gray);
   }

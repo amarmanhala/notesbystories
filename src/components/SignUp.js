@@ -112,14 +112,17 @@ function SignUp() {
   const [registerPassword, setregisterPassword] = useState("");
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitButtonLoading, setIsSubmitButtonLoading] = useState(false);
   let navigate = useNavigate();
   const [user, setuser] = useState({});
   onAuthStateChanged(auth, (currentUser) => {
     setuser(currentUser);
   });
 
-  const register = async () => {
+  const register = async (event) => {
+    event.preventDefault();
     try {
+      setIsSubmitButtonLoading(true);
       await createUserWithEmailAndPassword(
         auth,
         registerEmail,
@@ -130,8 +133,10 @@ function SignUp() {
         })
         .then(() => {
           navigate("/");
+          setIsSubmitButtonLoading(false);
         });
     } catch (error) {
+      setIsSubmitButtonLoading(false);
       setError(true);
       setErrorMessage(error.code);
     }
@@ -157,21 +162,27 @@ function SignUp() {
               <ErrorMessage message={errorMessage}></ErrorMessage>
             ) : null}
           </H1Wrapper>
-          <Form>
+          <Form onSubmit={register}>
             <Input
               type="email"
               placeholder="Email Address"
               onChange={(event) => setregisteEmail(event.target.value)}
+              required
+              autoComplete="off"
+              spellCheck="false"
+              autoCapitalize="off"
+              autoCorrect="off"
             ></Input>
 
             <Input
               type="password"
               placeholder="Password"
               onChange={(event) => setregisterPassword(event.target.value)}
+              required
             ></Input>
-            
-            <Input type="password" placeholder="Confirm Password"></Input>
-            <Button type="button" bgColor="#5E5CE6" onClick={register}>
+
+           
+            <Button type="submit" bgColor="#5E5CE6" hoverBgColor="#6462F5" disabled={isSubmitButtonLoading}>
               Sign Up
             </Button>
           </Form>
