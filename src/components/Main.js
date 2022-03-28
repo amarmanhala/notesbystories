@@ -1,10 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Editor from "./Editor";
 import { Header, NavContentWrapper, NavContent, ArrowWrapper } from "./Header";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 function Main() {
+  const [name, setname] = useState(""); 
+  const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    setname(user.displayName);
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
   const arrowRight = {
     fontSize: "20px",
     strokeWidth: "3",
@@ -15,7 +30,7 @@ function Main() {
         <Link to="/welcome">
           <NavContentWrapper>
             <NavContent>
-              Login or Sign up to store your notes permanently ✨
+              Login or Sign up to store your notes permanently ✨ { name }
             </NavContent>
             <ArrowWrapper>
               <FiArrowRight style={arrowRight} />
