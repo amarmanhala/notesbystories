@@ -1,11 +1,12 @@
 import React from "react";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { Button } from "./Button";
 
 export default function SignUpWithGoogle() {
   const provider = new GoogleAuthProvider();
   const auth = getAuth();
-  const register = async () => {
-    try {
+  const register = () => {
+    
       signInWithPopup(auth, provider)
         .then((result) => {
           // This gives you a Google Access Token. You can use it to access the Google API.
@@ -13,6 +14,7 @@ export default function SignUpWithGoogle() {
           const token = credential.accessToken;
           // The signed-in user info.
           const user = result.user;
+          console.log(user);
           // ...
         })
         .catch((error) => {
@@ -23,11 +25,9 @@ export default function SignUpWithGoogle() {
           const email = error.email;
           // The AuthCredential type that was used.
           const credential = GoogleAuthProvider.credentialFromError(error);
+          console.log(error);
           // ...
         });
-    } catch (error) {
-      console.log(error);
-    }
   };
-  return <button onClick={register}>hey, Google</button>;
+  return <Button onClick={register} bgColor="white">Continue with Google</Button>;
 }
