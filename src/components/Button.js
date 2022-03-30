@@ -4,10 +4,11 @@ import { device } from "../Devices";
 export const Button = styled.button`
   background-color: ${(props) => props.bgColor || 'var(--blue)'};
   padding: 12px 0;
-
   font-weight: 500;
   font-size: 20px;
-  border: 1px solid #000;
+  border: 1px solid ${(props) => props.borderColor || 'var(--border-color)'};
+  margin-bottom: 0.8em;
+
   &:hover {
     background-color: ${(props) => props.hoverBgColor || ''};
   }

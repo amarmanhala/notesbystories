@@ -3,11 +3,13 @@ import { Routes, Route, Link } from "react-router-dom";
 import Editor from "./Editor";
 import { Header, NavContentWrapper, NavContent, ArrowWrapper } from "./Header";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
-
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import useIsUSerLogged from "../hooks/useIsUserLogged";
 
 function Main() {
+  
   const [name, setname] = useState(""); 
+  let isUserLogged = useIsUSerLogged();
   const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -26,6 +28,7 @@ onAuthStateChanged(auth, (user) => {
   };
   return (
     <div>
+      {isUserLogged === null ? (
       <Header>
         <Link to="/welcome">
           <NavContentWrapper>
@@ -37,7 +40,19 @@ onAuthStateChanged(auth, (user) => {
             </ArrowWrapper>
           </NavContentWrapper>
         </Link>
-      </Header>
+      </Header> ) : 
+       (<Header>
+       <Link to="/welcome">
+         <NavContentWrapper>
+           <NavContent>
+             Logged header
+           </NavContent>
+           <ArrowWrapper>
+             <FiArrowRight style={arrowRight} />
+           </ArrowWrapper>
+         </NavContentWrapper>
+       </Link>
+     </Header> ) }
       <Editor></Editor>
     </div>
   );

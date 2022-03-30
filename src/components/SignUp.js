@@ -22,7 +22,7 @@ const LoginPage = styled.div`
   //justify-content: center;
   width: 100%;
   height: 100vh;
-  height: -webkit-fill-available;
+  //height: -webkit-fill-available;
   background-color: var(--top-nav-color);
 `;
 const Main = styled.main`

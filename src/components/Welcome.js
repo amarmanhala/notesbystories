@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Input } from "./Input";
 import { Button } from "./Button";
 import { device } from "../Devices";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Header, NavContentWrapper, NavContent, ArrowWrapper } from "./Header";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import {
@@ -12,13 +12,15 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../firebase-config";
+import ErrorMessage from "./ErrorMessage";
+
 const LoginPage = styled.div`
   display: flex;
   flex-direction: column;
   //justify-content: center;
   width: 100%;
   height: 100vh;
-  height: -webkit-fill-available;
+  //height: -webkit-fill-available;
   background-color: var(--top-nav-color);
 `;
 const Main = styled.main`
@@ -31,7 +33,6 @@ const Main = styled.main`
   height: -webkit-fill-available;
   background-color: transparent;
 `;
-
 const LoginWrapper = styled.div`
   background: transparent;
   display: flex;
@@ -97,6 +98,10 @@ const Divider = styled.hr`
     margin: 50px 0;
   }
 `;
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
 const arrowRight = {
   fontSize: "20px",
   strokeWidth: "3",
@@ -105,20 +110,28 @@ function Welcome() {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [user, setuser] = useState({});
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  let navigate = useNavigate();
+
   onAuthStateChanged(auth, (currentUser) => {
     setuser(currentUser);
   });
 
-  const login = async () => {
+  const login = async (event) => {
+    event.preventDefault();
     try {
       const user = await signInWithEmailAndPassword(
         auth,
         loginEmail,
         loginPassword
       );
-      console.log(user);
+      if (user) {
+        navigate("/");
+      }
     } catch (error) {
-      console.log(error.message);
+      setError(true);
+      setErrorMessage(error.code);
     }
   };
   const signout = async () => {
@@ -141,24 +154,29 @@ function Welcome() {
         <LoginWrapper>
           <H1Wrapper>
             <H1>Login in to Notes</H1>
-            <H1>{user?.email}</H1>
+            {error ? (
+              <ErrorMessage message={errorMessage}></ErrorMessage>
+            ) : null}
           </H1Wrapper>
-          <Input
-            type="email"
-            placeholder="Email Address"
-            onChange={(event) => setLoginEmail(event.target.value)}
-          ></Input>
-          <Input
-            type="password"
-            placeholder="Password"
-            onChange={(event) => setLoginPassword(event.target.value)}
-          ></Input>
-          <Button type="submit" onClick={login}>
-            Login
-          </Button>
+          <Form onSubmit={login}>
+            <Input
+              type="email"
+              placeholder="Email Address"
+              onChange={(event) => setLoginEmail(event.target.value)}
+              required
+            ></Input>
+            <Input
+              type="password"
+              placeholder="Password"
+              onChange={(event) => setLoginPassword(event.target.value)}
+              required
+            ></Input>
+            <Button type="submit">Login</Button>
+            
+          </Form>
           <Button type="submit" onClick={signout}>
-            Signout
-          </Button>
+              Signout
+            </Button>
 
           <Divider></Divider>
           <SignUpLinkWrapper tabIndex="0">
