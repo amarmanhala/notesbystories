@@ -136,7 +136,6 @@ function SignUp() {
         })
         .then(() => {
           navigate("/");
-          setIsSubmitButtonLoading(false);
         });
     } catch (error) {
       setIsSubmitButtonLoading(false);

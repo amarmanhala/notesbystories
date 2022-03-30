@@ -8,8 +8,7 @@ import { Header, NavContentWrapper, NavContent, ArrowWrapper } from "./Header";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import {
   signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
+  onAuthStateChanged
 } from "firebase/auth";
 import { auth } from "../firebase-config";
 import ErrorMessage from "./ErrorMessage";
@@ -134,9 +133,7 @@ function Welcome() {
       setErrorMessage(error.code);
     }
   };
-  const signout = async () => {
-    await signOut(auth);
-  };
+  
 
   return (
     <LoginPage>
@@ -174,9 +171,6 @@ function Welcome() {
             <Button type="submit">Login</Button>
             
           </Form>
-          <Button type="submit" onClick={signout}>
-              Signout
-            </Button>
 
           <Divider></Divider>
           <SignUpLinkWrapper tabIndex="0">

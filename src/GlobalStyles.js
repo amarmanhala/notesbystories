@@ -16,7 +16,7 @@ const GlobalStyles = createGlobalStyle`
         //Sizes
         --header-height: 44px;
         
-        @media (prefers-color-scheme: dark) {
+        @media (prefers-color-scheme: dark) {   
         --background-color: #0E141A;
         --text-color: #fff;
         --secondary-color: #9CA8B4;
