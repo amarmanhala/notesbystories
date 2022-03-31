@@ -12,7 +12,6 @@ const LogoutButton = styled.button`
     color: var(--system-gray3);
   }
 `;
-
 export default function Logout() {
   const signout = async () => {
     await signOut(auth);
