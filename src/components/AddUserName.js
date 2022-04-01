@@ -17,7 +17,7 @@ const NameInput = styled.input`
     color: var(--system-gray3);
   }
   @media ${device.mobileM} {
-    font-size: 12px;
+    font-size: 13px;
   }
   @media ${device.laptop} {
     font-size: 16px;  }
