@@ -16,7 +16,7 @@ const UserLoggedHeaderWrapper = styled.header`
   flex-direction: row;
   justify-content: space-between;
   @media ${device.mobileM} {
-    padding: 0 4px;
+    padding: 0 12px;
   }
   @media ${device.laptop} {
     padding: 0 50px;
@@ -29,6 +29,7 @@ flex-direction: row;
 const ProfileWrapper = styled.div`
 display: flex;
 flex-direction: row;
+width: 140px;
 `;
 
 export default function UserLoggedHeader(props) {

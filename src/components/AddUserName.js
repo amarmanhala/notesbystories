@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { getAuth, updateProfile } from "firebase/auth";
 import Sparkles from "./Sparkles";
+import { device } from "../Devices";
+
 
 const NameInput = styled.input`
   background-color: transparent;
@@ -10,9 +12,15 @@ const NameInput = styled.input`
   border: none;
   font-size: 16px;
   font-weight: 500;
+  width: 100%;
   &::placeholder {
     color: var(--system-gray3);
   }
+  @media ${device.mobileM} {
+    font-size: 12px;
+  }
+  @media ${device.laptop} {
+    font-size: 16px;  }
 `;
 export default function AddUserName() {
   const auth = getAuth();
@@ -45,7 +53,7 @@ export default function AddUserName() {
       <NameInput
         type="text"
         value={name}
-        placeholder=" 📛 Add your name"
+        placeholder="🙍 Add your name"
         onChange={(e) => setname(e.target.value)}
       ></NameInput>
     </Sparkles>

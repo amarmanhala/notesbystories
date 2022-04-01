@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { device } from "../Devices";
 import {
   signOut,
 } from "firebase/auth";
@@ -11,6 +12,11 @@ const LogoutButton = styled.button`
   &:hover {
     color: var(--system-gray3);
   }
+  @media ${device.mobileM} {
+    font-size: 12px;
+  }
+  @media ${device.laptop} {
+    font-size: 16px;  }
 `;
 export default function Logout() {
   const signout = async () => {
