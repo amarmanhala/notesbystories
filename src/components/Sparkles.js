@@ -18,7 +18,7 @@ const generateSparkle = color => {
   };
   return sparkle;
 };
-const Sparkles = ({ color = DEFAULT_COLOR, children, ...delegated }) => {
+const Sparkles = ({ color = DEFAULT_COLOR, disabled, children, ...delegated }) => {
   const [sparkles, setSparkles] = React.useState(() => {
     return range(3).map(() => generateSparkle(color));
   });
@@ -37,6 +37,9 @@ const Sparkles = ({ color = DEFAULT_COLOR, children, ...delegated }) => {
     prefersReducedMotion ? null : 50,
     prefersReducedMotion ? null : 450
   );
+  if (disabled) {
+    return (<>{children}</>);
+  } else {
   return (
     <Wrapper {...delegated}>
       {sparkles.map(sparkle => (
@@ -50,6 +53,7 @@ const Sparkles = ({ color = DEFAULT_COLOR, children, ...delegated }) => {
       <ChildWrapper>{children}</ChildWrapper>
     </Wrapper>
   );
+      }
 };
 const Sparkle = ({ size, color, style }) => {
   const path =

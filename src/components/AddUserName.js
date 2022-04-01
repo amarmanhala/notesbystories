@@ -27,19 +27,25 @@ export default function AddUserName() {
   const inputEl = useRef(null);
 
   const [name, setname] = useState("");
+  const [isSpracklesDisabled, setIsSpracklesDisabled] = useState(false);
+
 
   useEffect(() => {
     const userName = auth.currentUser.displayName;
     setname(userName === null ? "" : userName);
+    setIsSpracklesDisabled(userName === null ? false : true);
   } ,[]);
 
   useEffect(() => {
+    //setIsSpracklesDisabled(name === null ? false : true);
     updateProfile(auth.currentUser, {
       displayName: name,
     })
       .then(() => {
         // Profile updated!
         // ...
+        
+
         console.log(auth.currentUser.displayName);
       })
       .catch((error) => {
@@ -49,13 +55,11 @@ export default function AddUserName() {
   }, [name]);
 
   return (
-    <Sparkles>
       <NameInput
         type="text"
         value={name}
         placeholder="🙍 Add your name"
         onChange={(e) => setname(e.target.value)}
       ></NameInput>
-    </Sparkles>
   );
 }
