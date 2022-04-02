@@ -11,6 +11,8 @@ const GlobalStyles = createGlobalStyle`
         --system-gray3: #C7C7CC;
         --system-gray: #8E8E93;
 
+        //Sizes
+       --icon-font-size: 24px;
 
         
         //Sizes

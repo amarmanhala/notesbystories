@@ -13,21 +13,20 @@ function Layout({ title }) {
     grid-template-areas: "main";
   `;
   const Item1 = styled.div`
-     display: grid;
+    display: grid;
     grid-template-columns: repeat(1, 1fr);
     column-gap: 10px;
   `;
   const Item2 = styled.div`
-   display: grid;
+    display: grid;
     grid-template-columns: repeat(1, 1fr);
     column-gap: 10px;
-`;
+  `;
 
   return (
     <Wrapper>
       <Item1>Item 1</Item1>
       <Item2>Item 2</Item2>
-
     </Wrapper>
   );
 }
