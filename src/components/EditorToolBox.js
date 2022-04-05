@@ -7,34 +7,33 @@ import Volume from "./Volume";
 import ChangeBold from "./ChangeBold";
 import ChangeType from "./ChangeType";
 
-
 const EditorToolBoxWrapper = styled.div`
   background-color: transparent;
-  width: 100%;
-  min-height: 48px;
+  width: 48px;
+  min-height: calc(100vh - var(--header-height));
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-  color: var(--system-gray);
+  margin-left: 10px;
+  color: #e7e9ea;
 
   //border-bottom: 1px solid var(--border-color);
 `;
 const GroupedTools = styled.div`
-  width: 200px;
-  min-height: 100%;
+  width: 48px;
+  min-height: 160px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  color: var(--system-gray);
+  color: #e7e9ea;
 `;
 
 export default function EditorToolBox() {
   return (
     <EditorToolBoxWrapper>
-      <Volume></Volume>
+      
 
       <GroupedTools>
         <ChangeList></ChangeList>
@@ -43,7 +42,7 @@ export default function EditorToolBox() {
         <ChangeType></ChangeType>
       </GroupedTools>
 
-      <ChangeBackground></ChangeBackground>
+      
     </EditorToolBoxWrapper>
   );
 }

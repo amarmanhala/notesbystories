@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { device } from "../../Devices";
 import EditorToolBox from "../EditorToolBox";
+import EditorHeader from "../EditorHeader";
+import EditorTextArea from "../EditorTextArea";
 
 function Editor({ title }) {
   const Wrapper = styled.main`
@@ -12,6 +14,7 @@ function Editor({ title }) {
     min-height: calc(100vh - var(--header-height));
     align-items: flex-start;
     flex-direction: row;
+    flex-wrap: wrap;
     //justify-content: center;
 
     @media ${device.mobileM} { 
@@ -27,7 +30,9 @@ function Editor({ title }) {
 
   return (
     <Wrapper>
+      <EditorHeader></EditorHeader>
       <EditorToolBox></EditorToolBox>
+      <EditorTextArea></EditorTextArea>
     </Wrapper>
   );
 }

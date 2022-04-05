@@ -23,5 +23,5 @@ export default function Logout() {
   const signout = async () => {
     await signOut(auth);
   };
-  return <LogoutButton type="button" onClick={() => signout()}><FiLogOut></FiLogOut></LogoutButton>;
+  return <LogoutButton type="button" onClick={() => signout()} title="Logout"><FiLogOut></FiLogOut></LogoutButton>;
 }
