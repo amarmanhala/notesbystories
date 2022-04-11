@@ -37,11 +37,9 @@ const GlobalStyles = createGlobalStyle`
         background-color: var(--background-color);
         color: var(--text-color);
         font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-        height: 100%;
+        height: 100vh;
         margin: 0;
         padding: 0;
-        display: flex;
-        flex-direction: column;
     }
 `;
 export default GlobalStyles;

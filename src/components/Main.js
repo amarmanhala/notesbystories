@@ -5,19 +5,26 @@ import { Header, NavContentWrapper, NavContent, ArrowWrapper } from "./Header";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import useIsUSerLogged from "../hooks/useIsUserLogged";
 import UserLoggedHeader from "./UserLoggedHeader";
+import styled from "styled-components";
 
 function Main() {
   
-  
   const isUserLogged = useIsUSerLogged();
   console.log(isUserLogged);
+
+  const PageWrapper = styled.div`
+  display: flex; 
+  flex-direction: column;
+  height: 100vh;
+  `;
   
   const arrowRight = {
     fontSize: "20px",
     strokeWidth: "3",
   };
+  
   return (
-    <div>
+    <PageWrapper>
       {!isUserLogged ? (
       <Header>
         <Link to="/welcome">
@@ -33,7 +40,7 @@ function Main() {
       </Header> ) : 
        ( <UserLoggedHeader></UserLoggedHeader> ) }
       <Editor></Editor>
-    </div>
+    </PageWrapper>
   );
 }
 export default Main;

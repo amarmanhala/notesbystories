@@ -9,30 +9,44 @@ function Editor({ title }) {
   const Wrapper = styled.main`
     border-right: 1px solid var(--border-color);
     display: flex;
-    flex: 2;
+    flex-direction: column;
+  height: 100%;
     width: 70%;
-    min-height: calc(100vh - var(--header-height));
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-    //justify-content: center;
+    //min-height: calc(100vh - var(--header-height));
+    align-items: center;
+    //flex-direction: row;
+    //flex-wrap: wrap;
+    justify-content: center;
+    
 
     @media ${device.mobileM} { 
     width: 100%;
     border-right: none;
   }
+
   @media ${device.laptopL} { 
     width: 70%;
+    height: 100%;
     border-right: 1px solid var(--border-color);
 
   }
   `;
 
+  const InnerWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  `;
+
   return (
     <Wrapper>
       <EditorHeader></EditorHeader>
-      <EditorToolBox></EditorToolBox>
-      <EditorTextArea></EditorTextArea>
+      <InnerWrapper>
+        <EditorTextArea></EditorTextArea>
+      </InnerWrapper>
     </Wrapper>
   );
 }
