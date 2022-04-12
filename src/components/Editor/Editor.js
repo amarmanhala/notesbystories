@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import styled from "styled-components";
 import { device } from "../../Devices";
 import EditorToolBox from "../EditorToolBox";
@@ -6,6 +7,8 @@ import EditorHeader from "../EditorHeader";
 import EditorTextArea from "../EditorTextArea";
 
 function Editor({ title }) {
+  const color = useSelector((state) => state.changeBackground.background)
+
   const Wrapper = styled.main`
     border-right: 1px solid var(--border-color);
     display: flex;
@@ -17,6 +20,7 @@ function Editor({ title }) {
     //flex-direction: row;
     //flex-wrap: wrap;
     justify-content: center;
+    background-color: ${color};
     
 
     @media ${device.mobileM} { 

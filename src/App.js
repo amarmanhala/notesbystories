@@ -1,5 +1,7 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
+import { Provider } from 'react-redux'
+import store from "./store";
 import GlobalStyles from "./GlobalStyles";
 import "./index.css";
 import Welcome from "./components/Welcome";
@@ -10,6 +12,7 @@ function App() {
   
   return (
     <>
+      <Provider store={store}>
       <GlobalStyles />
       <div className="App">
       <Routes>
@@ -18,6 +21,7 @@ function App() {
         <Route path="signup" element={<SignUp />} />
       </Routes>
       </div>
+      </Provider>
     </>
   );
 }
